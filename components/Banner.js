@@ -4,7 +4,7 @@ function Banner() {
     return (
         <div className="relative pt-8" style={{ height: '70vh' }}>
             <Image
-                src="https://a0.muscache.com/im/pictures/e4a2a61c-589f-4e49-b3b8-968a6bc23389.jpg?im_w=2560"
+                src="/hero.webp"
                 layout="fill"
                 objectFit="cover"
             />

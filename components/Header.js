@@ -2,14 +2,17 @@ import Image from 'next/image'
 import { SearchIcon, GlobeAltIcon, UserCircleIcon, MenuIcon } from '@heroicons/react/solid'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import Autocomplete from "react-google-autocomplete"
+
+const YOUR_GOOGLE_MAPS_API_KEY = "AIzaSyAndx0wQz6jgFsR85fJUJp_2woFjD96_8k"
 
 function Header() {
     const [show, setShow] = useState(false)
 
     const transitionNavBar = () => {
-        if(window.scrollY > 100){
+        if (window.scrollY > 100) {
             setShow(true)
-        }else{
+        } else {
             setShow(false)
         }
     }
@@ -22,29 +25,40 @@ function Header() {
     return (
         <header className={`fixed w-full top-0 z-50 grid grid-cols-3 navbar p-5 md:px-10 ${show && "nav__stickey"}`}>
             <div className="relative flex items-center h-10 cursor-pointer my-auto">
-                <Image 
+                <Image
                     src="http://links.papareact.com/qd3"
-                    layout="fill"
+                    // layout="fill"
                     objectFit="contain"
                     objectPosition="left"
+                    width="130"
+                    height="130"
                 />
             </div>
-            <div className="flex bg-white items-center border-2 rounded-full py-2 md:shadow-sm">
-                <input type="text" placeholder="Start your search" className="outline-none pl-5 bg-transparent flex-grow mr-3 text-sm text-gray-600 placeholder-gray-400" />
+            <div className="flex bg-white items-center justify-between border-2 rounded-full py-2 md:shadow-sm">
+                {/* <input type="text" placeholder="Start your search" className="outline-none pl-5 bg-transparent flex-grow mr-3 text-sm text-gray-600 placeholder-gray-400" /> */}
+                <Autocomplete
+                    apiKey={YOUR_GOOGLE_MAPS_API_KEY}
+                    debounce={500}
+                    onPlaceSelected={(place) => {
+                        console.log(place)
+                    }}
+                    placeholder="(Google place autocomplete) Start your search...."
+                    className="outline-none pl-5 bg-transparent flex-grow mr-3 text-sm text-gray-600 placeholder-gray-400"
+                />
                 <SearchIcon className="h-8 bg-red-400 rounded-full text-white p-2 cursor-pointer hidden md:inline-flex md:mr-2" />
             </div>
             <div className="flex items-center justify-end space-x-3 text-gray-500 cursor-pointer">
                 <div className={`rounded-full py-2 px-3 flex items-center ${!show && "text_white"}`}>
                     <p className="hidden md:inline-flex mr-3">Become a host</p>
-                    <GlobeAltIcon 
+                    <GlobeAltIcon
                         className="h-6"
                     />
                 </div>
                 <div className="flex bg-white items-center space-x-3 rounded-full border-2 py-2 px-3 cursor-pointer">
-                    <MenuIcon 
+                    <MenuIcon
                         className="h-6"
                     />
-                    <UserCircleIcon 
+                    <UserCircleIcon
                         className="h-6"
                     />
                 </div>

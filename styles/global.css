@@ -1,0 +1,17 @@
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.navbar{
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+}
+.nav__stickey{
+    background: #fff;
+    box-shadow: 0px 3px 14px #96969633;
+}
+.text_white{
+    color: #fff;
+}

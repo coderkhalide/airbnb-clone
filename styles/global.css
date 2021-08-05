@@ -1,3 +1,11 @@
+@tailwind components;
+
+@layer components {
+    .button {
+        @apply cursor-pointer hover:bg-gray-50 transition duration-300 px-4 py-2 border rounded-full text-gray-700 hover:shadow-lg active:scale-90 my-2;
+    }
+}
+
 .scrollbar-hide::-webkit-scrollbar {
     display: none;
 }

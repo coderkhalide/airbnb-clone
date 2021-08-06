@@ -43,6 +43,7 @@ function Header({ placeholder }) {
     }
 
     useEffect(() => {
+        setDateActive(false)
         window.addEventListener('scroll', transitionNavBar)
         return () => window.removeEventListener('scroll', transitionNavBar)
     }, [])
@@ -66,7 +67,7 @@ function Header({ placeholder }) {
 
     useEffect(() => {
         if (searchInput) {
-            setDateActive(false)
+            setDateActive(true)
             setGuestActive(false)
         }
         else setDateActive(false)

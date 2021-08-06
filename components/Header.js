@@ -66,7 +66,7 @@ function Header({ placeholder }) {
 
     useEffect(() => {
         if (searchInput) {
-            setDateActive(true)
+            setDateActive(false)
             setGuestActive(false)
         }
         else setDateActive(false)
@@ -123,7 +123,7 @@ function Header({ placeholder }) {
                 <SearchIcon onClick={onSearch} className="h-8 bg-red-400 rounded-full text-white p-2 cursor-pointer inline-flex mr-2 w-8" />
             </div>
             <div className="sm:flex hidden items-center justify-end space-x-3 text-gray-500 cursor-pointer">
-                <div className={`rounded-full py-2 px-3 flex items-center ${!show && "text_white"}`}>
+                <div className={`rounded-full py-2 px-3 flex items-center`}>
                     <p className="hidden md:inline-flex mr-3">Become a host</p>
                     <GlobeAltIcon
                         className="h-6"
